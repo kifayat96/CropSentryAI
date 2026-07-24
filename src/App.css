@@ -1,3 +1,6 @@
+html {
+  scroll-behavior: smooth;
+}
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -35,6 +38,10 @@ p {
 /* Navbar */
 
 .navbar {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -80,10 +87,16 @@ input[type="file"] {
   border-radius: 8px;
   font-size: 16px;
   background: white;
+  color: #222;
+}
+select option {
+  background: white;
+  color: #222;
 }
 
 textarea {
   resize: none;
+  color: #222;
 }
 
 /* Buttons */
@@ -97,10 +110,12 @@ button {
   border-radius: 8px;
   cursor: pointer;
   margin: 10px;
+  transition: 0.3s;
 }
 
 button:hover {
   background: #1b5e20;
+  transform: translateY(-2px);
 }
 
 /* Image Preview */
@@ -112,21 +127,6 @@ button:hover {
   border-radius: 10px;
   border: 3px solid #2e7d32;
 }
-
-/* Result Box */
-
-.result {
-  margin-top: 30px;
-  padding: 20px;
-  background: white;
-  border-left: 6px solid #2e7d32;
-  border-radius: 10px;
-  text-align: left;
-  white-space: pre-wrap;
-  line-height: 1.8;
-  box-shadow: 0 3px 10px rgba(0,0,0,.15);
-}
-
 /* Footer */
 
 .footer {
@@ -213,4 +213,24 @@ button:hover {
     width: 90%;
     max-width: 300px;
   }
+}
+.result {
+  margin-top: 30px;
+  background: white;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+  text-align: left;
+}
+
+.result h2 {
+  color: #2e7d32;
+  margin-bottom: 15px;
+}
+
+.result pre {
+  white-space: pre-wrap;
+  font-size: 16px;
+  line-height: 1.8;
+  color: #333;
 }

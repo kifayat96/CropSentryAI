@@ -13,15 +13,44 @@ function App() {
   return (
     <>
       <nav className="navbar">
-        <h2>🌱 CropSentry AI</h2>
-        <ul>
-          <li>Home</li>
-          <li>About</li>
-          <li>Detect Disease</li>
-          <li>Contact</li>
-        </ul>
-      </nav>
+  <h2>🌱 CropSentry AI</h2>
 
+  <ul>
+    <li onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}>
+      Home
+    </li>
+
+    <li
+      onClick={() =>
+        document.getElementById("about").scrollIntoView({
+          behavior: "smooth",
+        })
+      }
+    >
+      About
+    </li>
+
+    <li
+      onClick={() =>
+        document.getElementById("detect").scrollIntoView({
+          behavior: "smooth",
+        })
+      }
+    >
+      Detect Disease
+    </li>
+
+    <li
+      onClick={() =>
+        document.getElementById("contact").scrollIntoView({
+          behavior: "smooth",
+        })
+      }
+    >
+      Contact
+    </li>
+  </ul>
+</nav>
       <div className="app">
         <h1>🌱 CropSentry AI</h1>
 
@@ -32,9 +61,18 @@ function App() {
           disease diagnosis, treatment recommendations, and prevention tips.
         </p>
 
-        <button>Get Started</button>
+       <button
+  onClick={() =>
+    document.getElementById("detect").scrollIntoView({
+      behavior: "smooth",
+    })
+  }
+>
+  Get Started
+</button>
 
-        <div className="form">
+
+       <div className="form" id="detect">
           <h3>Select Crop</h3>
 
           <select
@@ -110,7 +148,7 @@ function App() {
           <br />
           <br />
 
-          <button
+                    <button
             onClick={() => {
               setCrop("");
               setSymptoms("");
@@ -127,10 +165,30 @@ function App() {
 
           {result && (
             <div className="result">
-              {result}
+              <h2>🌱 AI Analysis Result</h2>
+              <pre>{result}</pre>
             </div>
           )}
         </div>
+
+        <section className="about" id="about">
+          <h2>About CropSentry AI</h2>
+
+          <p>
+            CropSentry AI is an intelligent crop disease detection system
+            that helps farmers identify crop diseases using Artificial
+            Intelligence. Users can select a crop, enter symptoms,
+            upload an image, and receive treatment and prevention advice.
+          </p>
+        </section>
+
+        <section className="contact" id="contact">
+          <h2>Contact Us</h2>
+
+          <p>📧 Email: cropsentryai@gmail.com</p>
+          <p>📍 Peshawar, Pakistan</p>
+          <p>📞 +92 300 1234567</p>
+        </section>
       </div>
 
       <footer className="footer">
@@ -141,3 +199,4 @@ function App() {
 }
 
 export default App;
+            
