@@ -132,3 +132,17 @@ Pakistan
 ## 📄 License
 
 This project is developed for educational purposes as a Final AI Project.
+
+
+
+
+## Screenshots
+
+### Home Page
+![Home](screenshots/1.png)
+
+### Disease Detection
+![Detection](screenshots/2.png)
+
+### AI Analysis Result
+![Result](screenshots/3.png)
