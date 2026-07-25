@@ -1,6 +1,4 @@
-html {
-  scroll-behavior: smooth;
-}
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -233,4 +231,197 @@ button:hover {
   font-size: 16px;
   line-height: 1.8;
   color: #333;
+}
+.result {
+  background: #ffffff;
+  padding: 25px;
+  border-radius: 12px;
+  margin-top: 30px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.15);
+}
+
+.result pre {
+  white-space: pre-wrap;
+  font-size: 17px;
+  line-height: 1.8;
+  color: #333;
+}
+hr {
+  margin: 20px 0;
+  border: none;
+  border-top: 1px solid #ddd;
+}
+/* Dark Mode */
+
+.dark {
+  background: #121212;
+  color: white;
+  min-height: 100vh;
+}
+
+.dark h1,
+.dark h2,
+.dark h3,
+.dark p,
+.dark label {
+  color: white;
+}
+
+.dark .about,
+.dark .contact,
+.dark .result {
+  background: #1f1f1f;
+  color: white;
+}
+
+.dark textarea,
+.dark select,
+.dark input {
+  background: #2a2a2a;
+  color: white;
+  border: 1px solid #555;
+}
+
+.dark pre {
+  color: white;
+}
+/* History */
+
+.history {
+  width: 90%;
+  margin: 50px auto;
+}
+
+.history h2 {
+  text-align: center;
+  color: #2e7d32;
+  margin-bottom: 25px;
+}
+
+.history-card {
+  background: white;
+  padding: 20px;
+  margin-bottom: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,.15);
+  text-align: left;
+}
+
+.history-card h3 {
+  color: #2e7d32;
+  margin-bottom: 10px;
+}
+
+.history-card p {
+  margin: 8px 0;
+}
+
+.history-card pre {
+  white-space: pre-wrap;
+  color: #333;
+  line-height: 1.7;
+}
+
+.history-card small {
+  display: block;
+  margin-top: 10px;
+  color: gray;
+}
+
+.history-card hr {
+  margin-top: 15px;
+}
+
+/* Dark Mode History */
+
+.dark .history h2 {
+  color: #4caf50;
+}
+
+.dark .history-card {
+  background: #1f1f1f;
+  color: white;
+}
+
+.dark .history-card h3,
+.dark .history-card p,
+.dark .history-card small,
+.dark .history-card pre {
+  color: white;
+}
+.confidence-box {
+  margin-top: 20px;
+  background: #e8f5e9;
+  padding: 15px;
+  border-radius: 10px;
+}
+
+.confidence-bar {
+  width: 100%;
+  height: 20px;
+  background: #ddd;
+  border-radius: 20px;
+  overflow: hidden;
+}
+
+.confidence-fill {
+  height: 100%;
+  width: 95%;
+  background: #4caf50;
+}
+.spinner {
+  width: 40px;
+  height: 40px;
+  border: 5px solid #ddd;
+  border-top: 5px solid #2e7d32;
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+  margin: 20px auto;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+.stats {
+  width: 90%;
+  margin: 50px auto;
+  text-align: center;
+}
+
+.stats-box {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 20px;
+}
+
+.stats-box div {
+  background: white;
+  width: 180px;
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 5px 15px rgba(0,0,0,.15);
+}
+
+.stats-box h3 {
+  color: green;
+  font-size: 32px;
+}
+
+.dark .stats-box div {
+  background: #1f1f1f;
+  color: white;
+}
+.navbar a {
+  text-decoration: none;
+}
+
+.navbar button {
+  margin-left: 10px;
 }

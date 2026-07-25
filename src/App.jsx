@@ -1,7 +1,21 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import { analyzeCrop } from "./assets/geminiAI.js";
+import { jsPDF } from "jspdf";
 
+function convertToBase64(file) {
+  return new Promise((resolve, reject) => {
+    const reader = new FileReader();
+
+    reader.readAsDataURL(file);
+
+    reader.onload = () => {
+      resolve(reader.result.split(",")[1]);
+    };
+
+    reader.onerror = (error) => reject(error);
+  });
+}
 function App() {
   const [crop, setCrop] = useState("");
   const [symptoms, setSymptoms] = useState("");
@@ -9,6 +23,33 @@ function App() {
   const [loading, setLoading] = useState(false);
   const [image, setImage] = useState(null);
   const [preview, setPreview] = useState("");
+  const [history, setHistory] = useState([]);
+  useEffect(() => {
+  const savedHistory = localStorage.getItem("history");
+
+  if (savedHistory) {
+    setHistory(JSON.parse(savedHistory));
+  }
+}, []);
+useEffect(() => {
+  localStorage.setItem("history", JSON.stringify(history));
+}, [history]);
+  const [darkMode, setDarkMode] = useState(false);
+  const downloadPDF = () => {
+  const doc = new jsPDF();
+  doc.setFontSize(18);
+  doc.text("CropSentry AI Report", 20, 20);
+
+  doc.setFontSize(12);
+  doc.text(result || "No Result Available", 20, 35);
+
+  doc.save("CropSentryAI_Report.pdf");
+};
+  const clearHistory = () => {
+  setHistory([]);
+  localStorage.removeItem("history");
+};
+
 
   return (
     <>
@@ -50,8 +91,29 @@ function App() {
       Contact
     </li>
   </ul>
+  <a
+  href="https://github.com/kifayat96/CropSentryAI"
+  target="_blank"
+  rel="noreferrer"
+>
+  <button>💻 GitHub</button>
+</a>
+
+<a
+  href="#"
+  target="_blank"
+  rel="noreferrer"
+>
+  <button>🌐 Live Demo</button>
+</a>
+  <button
+  onClick={() => setDarkMode(!darkMode)}
+  style={{ marginLeft: "20px" }}
+>
+  {darkMode ? "☀ Light Mode" : "🌙 Dark Mode"}
+</button>
 </nav>
-      <div className="app">
+      <div className={darkMode ? "app dark" : "app"}>
         <h1>🌱 CropSentry AI</h1>
 
         <h2>Smart AI Crop Disease Detection System</h2>
@@ -132,8 +194,30 @@ function App() {
               setLoading(true);
 
               try {
-                const answer = await analyzeCrop(crop, symptoms);
+               let imageBase64 = null;
+let mimeType = null;
+
+if (image) {
+  imageBase64 = await convertToBase64(image);
+  mimeType = image.type;
+}
+
+const answer = await analyzeCrop(
+  crop,
+  symptoms,
+  imageBase64,
+  mimeType
+);
                 setResult(answer);
+                setHistory((prev) => [
+  {
+    crop: crop,
+    symptoms: symptoms,
+    result: answer,
+    date: new Date().toLocaleString(),
+  },
+  ...prev,
+]);
               } catch (error) {
                 setResult("❌ Error: Unable to analyze crop. Please try again.");
                 console.error(error);
@@ -142,7 +226,14 @@ function App() {
               setLoading(false);
             }}
           >
-            {loading ? "Analyzing..." : "Analyze with AI"}
+           {loading ? "🔄 Analyzing Crop..." : "🌱 Analyze with AI"}
+
+{loading && (
+  <p style={{ color: "green", marginTop: "15px" }}>
+    ⏳ Please wait... AI is analyzing your crop.
+  </p>
+)}
+           {loading && <div className="spinner"></div>}
           </button>
 
           <br />
@@ -155,6 +246,8 @@ function App() {
               setImage(null);
               setPreview("");
               setResult("");
+              
+  
             }}
           >
             Clear Form
@@ -164,36 +257,126 @@ function App() {
           <br />
 
           {result && (
-            <div className="result">
-              <h2>🌱 AI Analysis Result</h2>
-              <pre>{result}</pre>
-            </div>
-          )}
+  <>
+    <div className="result">
+      <h2>🌱 AI Analysis Result</h2>
+      <div className="confidence-box">
+  <strong>🎯 AI Confidence</strong>
+
+  <div className="confidence-bar">
+    <div className="confidence-fill"></div>
+  </div>
+
+  <p>95%</p>
+</div>
+      <pre>{result}</pre>
+    </div>
+
+    <br />
+
+    <button onClick={downloadPDF}>
+      📄 Download PDF Report
+      
+    </button>
+    
+  </>
+)}
+{history.length > 0 && (
+  <section className="history">
+  <h2>🕒 Analysis History</h2>
+
+  <button
+    onClick={clearHistory}
+    style={{
+      background: "#d32f2f",
+      marginBottom: "20px",
+    }}
+  >
+    🗑 Clear History
+  </button>
+
+  {history.map((item, index) => (
+    <div className="history-card" key={index}>
+      <h3>🌱 {item.crop}</h3>
+
+      <p>
+        <strong>Symptoms:</strong> {item.symptoms}
+      </p>
+
+      <pre>{item.result}</pre>
+
+      <small>{item.date}</small>
+    </div>
+  ))}
+</section>
+)}
         </div>
 
         <section className="about" id="about">
           <h2>About CropSentry AI</h2>
 
           <p>
-            CropSentry AI is an intelligent crop disease detection system
-            that helps farmers identify crop diseases using Artificial
-            Intelligence. Users can select a crop, enter symptoms,
-            upload an image, and receive treatment and prevention advice.
+            CropSentry AI is an intelligent crop disease detection system that helps farmers identify crop diseases using Artificial Intelligence. Users can upload crop images, enter symptoms, and receive AI-powered disease diagnosis, treatment recommendations, and prevention tips.
           </p>
         </section>
 
         <section className="contact" id="contact">
           <h2>Contact Us</h2>
 
-          <p>📧 Email: cropsentryai@gmail.com</p>
-          <p>📍 Peshawar, Pakistan</p>
-          <p>📞 +92 300 1234567</p>
+          <p>📧 Email: kifayatullah9611@gmail.com</p>
+          <p>📍  Buner, Khyber Pakhtunkhwa, Pakistan</p>
+          <p>📞 Available on Request</p>
         </section>
       </div>
+      <section className="stats">
+  <h2>📊 CropSentry AI Statistics</h2>
+
+  <div className="stats-box">
+    <div>
+      <h3>{history.length}</h3>
+      <p>Total Analyses</p>
+    </div>
+
+    <div>
+      <h3>{history.filter(item => item.crop === "Potato").length}</h3>
+      <p>🥔 Potato</p>
+    </div>
+
+    <div>
+      <h3>{history.filter(item => item.crop === "Tomato").length}</h3>
+      <p>🍅 Tomato</p>
+    </div>
+
+    <div>
+      <h3>{history.filter(item => item.crop === "Wheat").length}</h3>
+      <p>🌾 Wheat</p>
+    </div>
+
+    <div>
+      <h3>{history.filter(item => item.crop === "Rice").length}</h3>
+      <p>🌾 Rice</p>
+    </div>
+
+    <div>
+      <h3>{history.filter(item => item.crop === "Maize").length}</h3>
+      <p>🌽 Maize</p>
+    </div>
+  </div>
+</section>
 
       <footer className="footer">
-        <p>© 2026 CropSentry AI | Developed by Kifayat Ullah</p>
-      </footer>
+  <h3>🌱 CropSentry AI</h3>
+
+  <p>🌱 CropSentry AI
+
+Developed by Kifayat Ullah
+BS Artificial Intelligence
+The University of Agriculture Peshawar
+
+© 2026 All Rights Reserved</p>
+
+ 
+</footer>
     </>
   );
 }
