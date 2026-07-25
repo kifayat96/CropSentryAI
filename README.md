@@ -1,16 +1,134 @@
-# React + Vite
+# 🌱 CropSentry AI
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## AI-Powered Crop Disease Advisor
 
-Currently, two official plugins are available:
+CropSentry AI is an AI-powered web application that helps farmers and agriculture students identify crop diseases by entering crop symptoms. The application uses Google's Gemini AI to provide disease diagnosis, possible causes, treatment recommendations, and prevention tips.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+---
 
-## React Compiler
+## 🌍 Problem Solved
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Many farmers cannot quickly identify crop diseases or get expert advice. CropSentry AI provides instant AI-based guidance to help users make better decisions and reduce crop losses.
 
-## Expanding the Oxlint configuration
+---
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 🚀 Live Demo
+
+https://crop-sentry-ai.vercel.app/
+
+---
+
+## 💻 GitHub Repository
+
+https://github.com/kifayat96/CropSentryAI
+
+---
+
+## ✨ Features
+
+- Select different crops
+- Enter crop symptoms
+- AI-powered disease analysis
+- Treatment recommendations
+- Prevention suggestions
+- Image upload preview
+- Clear form button
+- Simple and user-friendly interface
+- Responsive design
+
+---
+
+## 🤖 AI Feature
+
+This application uses **Google Gemini 2.5 Flash**.
+
+The AI analyzes the crop name and symptoms provided by the user and generates:
+
+- Disease Name
+- Cause
+- Treatment
+- Prevention
+
+Prompt used:
+
+```
+Crop: {crop}
+
+Symptoms: {symptoms}
+
+Give disease name, cause, treatment and prevention.
+```
+
+---
+
+## 🛠 Technologies Used
+
+- React.js
+- Vite
+- JavaScript
+- CSS
+- Google Gemini API
+- GitHub
+- Vercel
+
+---
+
+## 📸 Screenshots
+
+### Home Page
+
+(Add Screenshot Here)
+
+### Disease Detection
+
+(Add Screenshot Here)
+
+### AI Analysis Result
+
+(Add Screenshot Here)
+
+---
+
+## ⚙️ How to Run
+
+1. Clone the repository
+
+```
+git clone https://github.com/kifayat96/CropSentryAI.git
+```
+
+2. Install packages
+
+```
+npm install
+```
+
+3. Create a `.env` file
+
+```
+VITE_GEMINI_API_KEY=YOUR_API_KEY
+```
+
+4. Run the project
+
+```
+npm run dev
+```
+
+---
+
+## 👨‍💻 Developer
+
+**Kifayat Ullah**
+
+BS Artificial Intelligence Student
+
+University of Agriculture Peshawar
+
+Pakistan
+
+---
+
+## 📄 License
+
+This project is developed for educational purposes as a Final AI Project.
