@@ -73,20 +73,19 @@ Give disease name, cause, treatment and prevention.
 
 ---
 
-## 📸 Screenshots
+## Screenshots
 
 ### Home Page
 
-(Add Screenshot Here)
+![Home](1.png)
 
 ### Disease Detection
 
-(Add Screenshot Here)
+![Detection](2.png)
 
 ### AI Analysis Result
 
-(Add Screenshot Here)
-
+![Result](3.png)
 ---
 
 ## ⚙️ How to Run
