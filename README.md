@@ -25,8 +25,7 @@ CropSentry AI uses Artificial Intelligence to provide quick disease analysis and
 
 ## 🌐 Live Demo
 
-https://crop-sentry-ax9fl46um-kifayat96s-projects.vercel.app/
-
+https://crop-sentry-ai.vercel.app/
 ---
 
 ## 💻 GitHub Repository
