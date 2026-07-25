@@ -84,16 +84,15 @@ Return:
 
 ### Home Page
 
-(Add Screenshot 1)
+![Home Page](screenshots/home.png)
 
 ### Disease Detection Form
 
-(Add Screenshot 2)
+![Disease Detection Form](screenshots/form.png)
 
 ### AI Analysis Result
 
-(Add Screenshot 3)
-
+![AI Analysis Result](screenshots/result.png)
 ---
 
 ## 🚀 Installation
