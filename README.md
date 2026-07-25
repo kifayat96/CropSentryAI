@@ -82,11 +82,14 @@ Return:
 
 ## 📸 Screenshots
 
-### Home Page
-![Home Page](screenshots/1.png)
+### 1. Home Page
+![Home Page](./1.png)
 
-### Disease Detection Form
-![Disease Detection Form](screenshots/2.png)
+### 2. Disease Detection Form
+![Disease Detection Form](./2.png)
+
+### 3. AI Analysis Result
+![AI Analysis Result](./3.png)
 
 ### AI Analysis Result
 ![AI Analysis Result](screenshots/3.png)
