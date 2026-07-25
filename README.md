@@ -1,20 +1,31 @@
 # 🌱 CropSentry AI
 
-## AI-Powered Crop Disease Advisor
+> AI-Powered Crop Disease Advisor built with React, Vite and Google Gemini AI.
 
-CropSentry AI is an AI-powered web application that helps farmers and agriculture students identify crop diseases by entering crop symptoms. The application uses Google's Gemini AI to provide disease diagnosis, possible causes, treatment recommendations, and prevention tips.
+## 📖 Overview
+
+CropSentry AI is a web application that helps farmers and agriculture students identify crop diseases by entering crop symptoms. The AI analyzes the information and provides:
+
+- Disease Name
+- Possible Cause
+- Treatment Suggestions
+- Prevention Tips
+
+The goal of this project is to make crop disease guidance fast, simple, and accessible.
 
 ---
 
-## 🌍 Problem Solved
+## 🚜 Problem Statement
 
-Many farmers cannot quickly identify crop diseases or get expert advice. CropSentry AI provides instant AI-based guidance to help users make better decisions and reduce crop losses.
+Many farmers cannot easily identify crop diseases or know the correct treatment. Agricultural experts may not always be available, especially in rural areas.
+
+CropSentry AI uses Artificial Intelligence to provide quick disease analysis and practical recommendations.
 
 ---
 
-## 🚀 Live Demo
+## 🌐 Live Demo
 
-https://crop-sentry-ai.vercel.app/
+https://crop-sentry-ax9fl46um-kifayat96s-projects.vercel.app/
 
 ---
 
@@ -26,93 +37,113 @@ https://github.com/kifayat96/CropSentryAI
 
 ## ✨ Features
 
-- Select different crops
-- Enter crop symptoms
-- AI-powered disease analysis
-- Treatment recommendations
-- Prevention suggestions
-- Image upload preview
-- Clear form button
-- Simple and user-friendly interface
-- Responsive design
+- 🌾 Crop Selection
+- 📝 Symptom Input
+- 🤖 AI Disease Analysis
+- 💊 Treatment Recommendations
+- 🛡 Prevention Tips
+- 🖼 Image Upload Preview
+- 🧹 Clear Form
+- 📱 Responsive Design
+- ⚡ Fast AI Response
 
 ---
 
 ## 🤖 AI Feature
 
-This application uses **Google Gemini 2.5 Flash**.
+This application uses **Google Gemini 3 Flash Preview**.
 
-The AI analyzes the crop name and symptoms provided by the user and generates:
+### AI Prompt
+
+Analyze the selected crop and symptoms.
+
+Return:
 
 - Disease Name
-- Cause
+- Possible Cause
 - Treatment
-- Prevention
-
-Prompt used:
-
-```
-Crop: {crop}
-
-Symptoms: {symptoms}
-
-Give disease name, cause, treatment and prevention.
-```
+- Prevention Tips
 
 ---
 
 ## 🛠 Technologies Used
 
-- React.js
+- React
 - Vite
 - JavaScript
-- CSS
+- CSS3
 - Google Gemini API
+- Git
 - GitHub
 - Vercel
+- VS Code
 
 ---
 
-## Screenshots
+## 📸 Screenshots
 
 ### Home Page
 
-![Home](1.png)
+(Add Screenshot 1)
 
-### Disease Detection
+### Disease Detection Form
 
-![Detection](2.png)
+(Add Screenshot 2)
 
 ### AI Analysis Result
 
-![Result](3.png)
+(Add Screenshot 3)
+
 ---
 
-## ⚙️ How to Run
+## 🚀 Installation
 
-1. Clone the repository
+Clone the repository
 
-```
+```bash
 git clone https://github.com/kifayat96/CropSentryAI.git
 ```
 
-2. Install packages
+Install dependencies
 
-```
+```bash
 npm install
 ```
 
-3. Create a `.env` file
+Create a `.env` file
 
-```
+```env
 VITE_GEMINI_API_KEY=YOUR_API_KEY
 ```
 
-4. Run the project
+Run the application
 
-```
+```bash
 npm run dev
 ```
+
+---
+
+## 📂 Project Structure
+
+```
+src/
+ ├── assets/
+ ├── App.jsx
+ ├── App.css
+ ├── main.jsx
+```
+
+---
+
+## 🔮 Future Improvements
+
+- AI Image Disease Detection
+- Voice Input
+- Multiple Languages
+- Weather Forecast Integration
+- Fertilizer Recommendation
+- Disease History
 
 ---
 
@@ -120,28 +151,16 @@ npm run dev
 
 **Kifayat Ullah**
 
-BS Artificial Intelligence Student
+BS Artificial Intelligence
 
 University of Agriculture Peshawar
 
 Pakistan
 
+2026
+
 ---
 
-## 📄 License
+## 📜 License
 
-This project is developed for educational purposes as a Final AI Project.
-
-
-
-
-## Screenshots
-
-### Home Page
-![Home](1.png)
-
-### Disease Detection
-![Detection](2.png)
-
-### AI Analysis Result
-![Result](3.png)
+This project was developed for educational purposes as part of the ACT AI Final Project.
