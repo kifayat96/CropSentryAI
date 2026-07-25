@@ -83,17 +83,13 @@ Return:
 ## 📸 Screenshots
 
 ### Home Page
-
-![Home Page](screenshots/home.png)
+![Home Page](screenshots/1.png)
 
 ### Disease Detection Form
-
-![Disease Detection Form](screenshots/form.png)
+![Disease Detection Form](screenshots/2.png)
 
 ### AI Analysis Result
-
-![AI Analysis Result](screenshots/result.png)
----
+![AI Analysis Result](screenshots/3.png)
 
 ## 🚀 Installation
 
