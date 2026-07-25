@@ -91,8 +91,6 @@ Return:
 ### 3. AI Analysis Result
 ![AI Analysis Result](./3.png)
 
-### AI Analysis Result
-![AI Analysis Result](screenshots/3.png)
 
 ## 🚀 Installation
 
